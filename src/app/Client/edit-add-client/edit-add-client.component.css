@@ -1,0 +1,26 @@
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+
+
+.mr{
+margin-left: 20px;
+margin-right: 10px;
+
+}
+
+.ms{
+    margin-left: 10px;
+margin-right: -10px;
+}
+.custom-file-label::after {
+
+    background-color: #51cbce;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 0.8;
+}
+
+

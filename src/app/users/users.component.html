@@ -1,0 +1,47 @@
+
+<div class="container margc ">
+
+
+<div class="table-responsive">
+
+    <table class="table  marg ">
+        <thead>
+          <tr>
+            <th scope="col" >#</th>
+            <th scope="col" style="width: 30%">Username</th>
+            <th scope="col" style="width: 30%">Last Name </th>
+            <th scope="col" style="width: 30%">First Name</th>
+            <th scope="col" style="width: 10%"></th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of sau.cu.value; index as i "  >
+            <th scope="row">{{i}}</th>
+            <td>{{t.name}}</td>
+            <td>{{t.firestname}}</td>
+            <td>{{t.lastname}}</td>
+            <td style="white-space: nowrap">
+                <a  class="btn btn-sm btn-primary mr-1" routerLink="/weathe/users/{{t.id}}" >Edit</a>
+                <button class="btn btn-sm btn-danger btn-delete-user" (click)="sau.deleteUser(t.name)" >
+                    
+                    <span >Delete</span>
+                </button>
+            </td>
+          </tr>
+         
+         
+          
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshCountries()">
+        </ngb-pagination>
+      
+        <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
+          <option [ngValue]="2">2 items per page</option>
+          <option [ngValue]="4">4 items per page</option>
+          <option [ngValue]="6">6 items per page</option>
+        </select>
+</div>
+</div>

@@ -1,0 +1,60 @@
+
+<div class="container margc ">
+
+  <div class="mbutton">
+    <button type="submit"  (click)=  navigatetoAddClient()  class="btn btn-primary btn-round mbutton" >ADD CLIENT </button>
+
+  </div>
+  <div class="table-responsive">
+  
+      <table class="table  marg ">
+          <thead>
+            <tr>
+              <th scope="col" >#</th>
+              <th scope="col" >Firstname</th>
+              <th scope="col">Lastname </th>
+              <th scope="col" >Address</th>
+              <th scope="col" >Email</th>
+              <th scope="col" >City</th>
+              <th scope="col" >zipcode</th>
+              <th scope="col" >PhoneNumber</th>
+              <th scope="col" >RegisterDate</th>
+              <th scope="col" style="width: 10%"></th>
+  
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let t of clientService.listSubjectClient.value; index as i "  >
+              <th scope="row">{{i}}</th>
+              <td>{{t.firstname}}</td>
+              <td>{{t.lastname}}</td>
+              <td>{{t.address}}</td>
+              <td>{{t.email}}</td>
+              <td>{{t.city}}</td>
+              <td>{{t.zipcode}}</td>
+              <td>{{t.phoneNumber}}</td>
+              <td>{{t.registerDate}}</td>
+              <td style="white-space: nowrap">
+                  <a  class="btn btn-sm btn-primary mr-1" routerLink="/admin/all-client/{{t.id}}" >Edit</a>
+                  <button class="btn btn-sm btn-danger btn-delete-user" (click)="clientService.deleteClient(t.id)" >
+                      
+                      <span >Delete</span>
+                  </button>
+              </td>
+            </tr>
+           
+           
+            
+          </tbody>
+        </table>
+        <div class="d-flex justify-content-between p-2">
+          <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshCountries()">
+          </ngb-pagination>
+        
+          <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
+            <option [ngValue]="2">2 items per page</option>
+            <option [ngValue]="4">4 items per page</option>
+            <option [ngValue]="6">6 items per page</option>
+          </select>
+  </div>
+  </div>

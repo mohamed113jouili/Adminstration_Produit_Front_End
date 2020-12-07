@@ -1,0 +1,51 @@
+<div class="container margc ">
+
+    <div class="mbutton">
+        <button type="submit" (click)=navigatetoAddClient() class="btn btn-primary btn-round mbutton">ADD CATEGORY PRODUCT
+        </button>
+
+    </div>
+    <div class="table-responsive">
+
+        <table class="table  marg ">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col" style="width: 20%"><p class="text-center">Name</p></th>
+                    <th scope="col" style="width: 70%"><p class="text-center">Discription</p></th>
+
+                
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let t of categoryproductService.listSubjectCategoryProduct.value; index as i ">
+                    <th scope="row"> <span class="text-center">{{i}}</span></th>
+                    <td><p class="text-center">{{t.name}}</p></td>
+                    <td><p class="text-center">{{t.description}}</p></td>
+
+                    <td style="white-space: nowrap">
+                        <a class="btn btn-sm btn-primary mr-1" routerLink="/admin/all-product-category/{{t.id}}">Edit</a>
+                        <button class="btn btn-sm btn-danger btn-delete-user" (click)="categoryproductService.deleteCategoryProduct(t.id)">
+
+                            <span>Delete</span>
+                        </button>
+                    </td>
+                </tr>
+
+
+
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-between p-2">
+            <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+                (pageChange)="refreshCountries()">
+            </ngb-pagination>
+
+            <select class="custom-select" style="width: auto" [(ngModel)]="pageSize"
+                (ngModelChange)="refreshCountries()">
+                <option [ngValue]="2">2 items per page</option>
+                <option [ngValue]="4">4 items per page</option>
+                <option [ngValue]="6">6 items per page</option>
+            </select>
+        </div>
+    </div>
