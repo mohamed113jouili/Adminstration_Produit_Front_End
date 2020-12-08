@@ -1,8 +1,5 @@
-<div class="">
-    <div class="">
-      <div class="card-header">
-        <h5 class="card-title">Add Client</h5>
-      </div>
+    <div class="container mtop">
+    
       <div class="card-body">
         <form [formGroup]="clientForm" (ngSubmit)="addOReditClient()">
           <div class="row">
@@ -20,7 +17,7 @@
             <div class="col-md-6 pr-1">
               <div class="form-group">
                 <label>First Name</label>
-                <input type="text" formControlName="firstname" [(ngModel)]="clientService.subjectClient.value.firstname" class="form-control" placeholder="Company" value="Chet">
+                <input type="text" formControlName="firstname" [(ngModel)]="clientService.subjectClient.value.firstname" class="form-control" placeholder="Firstname" value="Chet">
               </div>
             </div>
             <div class="col-md-6 pl-1">
@@ -54,7 +51,7 @@
             <div class="col-md-4 px-1">
               <div class="form-group">
                 <label>Phone Number</label>
-                <input class="form-control input-sm" type="tel"  placeholder="1-(555)-555-5555"  formControlName="phoneNumber">
+                <input class="form-control input-sm" type="tel" [(ngModel)]="inputPhonenumber" placeholder="1-(555)-555-5555"  formControlName="phoneNumber">
               </div>
             </div>
             <div class="col-md-4 pl-1">

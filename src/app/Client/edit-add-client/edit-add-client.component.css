@@ -22,5 +22,23 @@ margin-right: -10px;
     font-weight: 600;
     font-size: 0.8;
 }
+.marg{
+    margin-top: 100px;
+}
+.margc{
+    margin-top: 50px;
+}
+
+.mbutton{
+
+    margin-top: 50px;
+    margin-bottom: -40px;
+}
+
+.mtop{
+    margin-top: 50px;
+}
+
+
 
 

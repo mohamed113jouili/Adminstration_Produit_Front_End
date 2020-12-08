@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClientService } from '@app/Services/client.service';
+import { ErrorService } from '@app/Services/error.service';
 
 @Component({
   selector: 'app-edit-add-client',
   templateUrl: './edit-add-client.component.html',
-  styleUrls: ['./edit-add-client.component.css']
+  styleUrls: ['./edit-add-client.component.css'],
+  providers: [ErrorService]
+
 })
 export class EditAddClientComponent implements OnInit {
   clientForm: FormGroup;
@@ -51,8 +54,6 @@ export class EditAddClientComponent implements OnInit {
       }
 
     )
-
-
   }
 
   //update client 
@@ -110,7 +111,7 @@ export class EditAddClientComponent implements OnInit {
           this.clientService.subjectClient.value.zipcode= undefined
           this.clientService.subjectClient.value.city= ""
           this.clientService.subjectClient.value.email= ""
-          this.clientService.subjectClient.value.date.toDateString()
+          //this.clientService.subjectClient.value.date.toDateString()
 
           this.clientService.subjecttitleButton.next("Add  Client");
           this.clientService.subjectIsUpdate.next(false);

@@ -10,12 +10,12 @@
         <table class="table  marg ">
             <thead>
               <tr>
-                <th scope="col" >#</th>
-                <th scope="col" >Name</th>
-                <th scope="col">Price </th>
-                <th scope="col" >Available Stock</th>
-                <th scope="col" >Category Product</th>
-                <th scope="col" >Description</th>
+                <th scope="col"scope="col" style="width: 5%"  >#</th>
+                <th scope="col" style="width: 15%" >Name</th>
+                <th scope="col" style="width: 15%">Price </th>
+                <th scope="col" style="width: 15%">Available Stock</th>
+                <th scope="col"style="width: 15%" >Category Product</th>
+                <th scope="col"style="width: 30%" >Description</th>
     
               </tr>
             </thead>
@@ -41,14 +41,6 @@
               
             </tbody>
           </table>
-          <div class="d-flex justify-content-between p-2">
-            <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshCountries()">
-            </ngb-pagination>
-          
-            <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
-              <option [ngValue]="2">2 items per page</option>
-              <option [ngValue]="4">4 items per page</option>
-              <option [ngValue]="6">6 items per page</option>
-            </select>
+         
     </div>
     </div>

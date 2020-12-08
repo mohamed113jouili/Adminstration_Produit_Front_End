@@ -2,9 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../Models/user';
-import { map } from 'rxjs/operators';
-import { ResponseAuth } from '../Models/response-auth';
-import { Users } from '../Models/users';
 import { LocalStorage } from '@ngx-pwa/local-storage';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
@@ -23,23 +20,9 @@ export class AuthService {
   ispasswordcorrect: boolean = false
   cu = new BehaviorSubject<User[]>([]);
 
-  us: Users = {
-    "users": [
 
-      {
-        "id": 1,
-        "name": "mohamed",
-        "password": "1234"
+  user: User = {}
 
-      }
-
-    ]
-  }
-  user: User = {
-
-    "id": 2,
-    "name": ""
-  }
 
   constructor(public http: HttpClient, private router: Router, private localstorage: LocalStorage) {
 
@@ -57,12 +40,7 @@ export class AuthService {
   }
 
 
-  Login() {
 
-    return this.http.get<ResponseAuth>("http://api.weatherstack.com/current?access_key=dc7a59eb5ab916e851992f7e1bc7df95",)
-      .pipe(map(resp => resp));
-
-  }
 
   singuptest(user: User) {
     //localStorage.removeItem('session')

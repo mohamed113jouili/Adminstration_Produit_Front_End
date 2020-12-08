@@ -4,19 +4,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryProduct } from '@app/Models/categoryProduct';
 import { Product } from '@app/Models/Product';
 import { CategoryproductService } from '@app/Services/categoryproduct.service';
+import { ErrorService } from '@app/Services/error.service';
 import { ProductService } from '@app/Services/product.service';
 
 @Component({
   selector: 'app-edit-add-product',
   templateUrl: './edit-add-product.component.html',
-  styleUrls: ['./edit-add-product.component.css']
+  styleUrls: ['./edit-add-product.component.css'],
+  providers: [ErrorService]
 })
 export class EditAddProductComponent implements OnInit {
 
   proForm: FormGroup;
   sel_cat: string;
   constructor(private router: Router, public categoryproductService: CategoryproductService,
-    public productService: ProductService, private formBuilder: FormBuilder,private arouter:ActivatedRoute) { }
+    public productService: ProductService, private formBuilder: FormBuilder,private arouter:ActivatedRoute,public errorService :ErrorService) { }
 
 
   ngOnInit(): void {

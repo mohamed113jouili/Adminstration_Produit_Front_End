@@ -9,9 +9,10 @@ import { Client } from '../Models/client';
   providedIn: 'root'
 })
 export class ClientService {
+
   private _listSubjectClient = new BehaviorSubject<Client[]>([]);
   private _subjectClient = new BehaviorSubject<Client>({});
-  private _subjecttitleButton = new BehaviorSubject<String>("mmmmm");
+  private _subjecttitleButton = new BehaviorSubject<String>("Add  Client");
   private _subjectIsUpdate = new BehaviorSubject<boolean>(false);
   private _subjectCurrentEditId = new BehaviorSubject<number>(0);
  

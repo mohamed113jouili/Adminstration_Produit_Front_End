@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/Models/user';
-import { Users } from 'src/app/Models/users';
 import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
@@ -12,38 +11,10 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class SignupComponent implements OnInit {
   singupform: FormGroup;
-  s: string;
-  sl: string;
+
   isSubmitted = false;
-  us: Users = {
-    "users": [
 
-      {
-        "id": 1,
-        "name": "mohamed",
-        "password": "1234"
-
-      }
-
-    ]
-  }
-  user: User = {
-
-    "id": 2,
-    "name": ""
-  }
-  usersa = [{}, {}, {}];
-
-  userst: object[] = [
-
-    {
-      "id": 1,
-      "name": "mohamed",
-      "password": "1234"
-
-    }
-
-  ]
+  user: User = {}
 
   constructor(private router: Router, private formBuilder: FormBuilder, public auths: AuthService) { }
 

@@ -4,8 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-import { WeatheComponent } from './weathe/weathe.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -21,6 +20,8 @@ import { LoginComponent } from './Security/login/login.component';
 import { SignupComponent } from './Security/signup/signup.component';
 import { FooterComponent } from './Admin/footer/footer.component';
 import { HeaderComponent } from './Admin/header/header.component';
+import { AdminComponent } from './Admin/admin/admin.component';
+import { HttpErrorInterceptor } from './ErrorInterceptor/HttpErrorInterceptor ';
 
 
 
@@ -36,7 +37,7 @@ const appRoutes: Routes =
 
      {
       path: 'admin',
-      component: WeatheComponent,
+      component: AdminComponent,
 
       children: [
 
@@ -66,7 +67,6 @@ const appRoutes: Routes =
     AppComponent,
     LoginComponent,
     SignupComponent,
-    WeatheComponent,
     HeaderComponent,
     FooterComponent,
     UsersComponent,
@@ -76,6 +76,7 @@ const appRoutes: Routes =
     EditAddCategoryproductComponent,
     EditAddClientComponent,
     EditAddProductComponent,
+    AdminComponent,
    
     
 
@@ -95,7 +96,14 @@ const appRoutes: Routes =
   
     
   ],
-  providers: [],
+  providers: [
+    HttpErrorInterceptor,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -83,7 +83,6 @@ export class EditAddCategoryproductComponent implements OnInit {
 
 
   addCategoryProductt() {
-    console.log(this.catForm.value)
     this.categoryproductService.saveCategoryProduct(this.catForm.value).toPromise().then(
 
       rep => {
